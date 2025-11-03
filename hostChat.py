@@ -4,7 +4,7 @@ host = '0.0.0.0' #aceita conexões de qualquer IP
 port = 8109
 
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-server.bind(host, port)
+server.bind((host, port))
 server.listen(1)
 
 print(f"--------Servidor escutando na porta {port}.--------")
@@ -20,5 +20,4 @@ while True: # loop infinito para conexão entre servidor e cliente.
     resposta = input("Você: ")
     conn.send(resposta.encode())
 
-conn.close()
 server.close()
